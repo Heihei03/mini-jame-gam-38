@@ -25,6 +25,7 @@ func _process(delta):
 	
 	if(Input.is_action_pressed("jump")&&is_on_floor()):
 		velocity.y = jump_velocity
+		$Sprite.animation = "jump"
 		
 	if(Input.is_action_just_pressed("jump")&& not is_on_floor() && not has_double_jumped):
 		velocity.y = jump_velocity
