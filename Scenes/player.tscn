@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://btjfnotnwvf1h"]
+[gd_scene load_steps=17 format=3 uid="uid://btjfnotnwvf1h"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ec7xa"]
 [ext_resource type="Texture2D" uid="uid://dw0mw37ism2py" path="res://Resources/Adventure_Character_Simple.png" id="2_7c21i"]
@@ -31,6 +31,30 @@ region = Rect2(192, 0, 48, 48)
 atlas = ExtResource("2_7c21i")
 region = Rect2(240, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7b4v"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvtdu"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8aia"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xju7o"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ojjy"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxee5"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(240, 48, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_hfth0"]
 animations = [{
 "frames": [{
@@ -55,6 +79,29 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7b4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvtdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8aia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xju7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ojjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxee5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -67,7 +114,7 @@ shape = SubResource("CapsuleShape2D_u2nw7")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hfth0")
-animation = &"idle"
-frame_progress = 0.309533
+animation = &"walk"
+frame_progress = 0.956311
 
 [node name="Camera2D" type="Camera2D" parent="."]

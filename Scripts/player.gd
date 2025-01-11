@@ -13,6 +13,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if velocity.x == 0:
+		$Sprite.animation = "idle"
+		
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
@@ -21,6 +24,11 @@ func _process(delta):
 	
 	if(Input.is_action_pressed("jump")&&is_on_floor()):
 		velocity.y = jump_velocity
-	
+		
+	if velocity.x != 0:
+		$Sprite.animation = "walk"
+		# See the note below about the following boolean assignment.
+		$Sprite.flip_h = velocity.x < 0
+	$Sprite.play()
 	move_and_slide()
 	pass
