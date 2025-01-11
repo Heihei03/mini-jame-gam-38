@@ -1,13 +1,70 @@
-[gd_scene load_steps=3 format=3 uid="uid://btjfnotnwvf1h"]
+[gd_scene load_steps=11 format=3 uid="uid://btjfnotnwvf1h"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ec7xa"]
+[ext_resource type="Texture2D" uid="uid://dw0mw37ism2py" path="res://Resources/Adventure_Character_Simple.png" id="2_7c21i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2nw7"]
+radius = 6.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik0ao"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwc72"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k2h7"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekfsn"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vecat"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w8g5"]
+atlas = ExtResource("2_7c21i")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfth0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik0ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwc72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k2h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekfsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vecat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w8g5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(72, 76)
 script = ExtResource("1_ec7xa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_u2nw7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hfth0")
+animation = &"idle"
+frame_progress = 0.540352
