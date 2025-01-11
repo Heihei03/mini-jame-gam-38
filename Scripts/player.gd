@@ -27,8 +27,7 @@ func _process(delta):
 		
 	if velocity.x != 0:
 		$Sprite.animation = "walk"
-		# See the note below about the following boolean assignment.
 		$Sprite.flip_h = velocity.x < 0
 	$Sprite.play()
+	
 	move_and_slide()
-	pass
