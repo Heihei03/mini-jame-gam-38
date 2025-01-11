@@ -115,6 +115,6 @@ shape = SubResource("CapsuleShape2D_u2nw7")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hfth0")
 animation = &"walk"
-frame_progress = 0.0608695
+frame_progress = 0.319805
 
 [node name="Camera2D" type="Camera2D" parent="."]

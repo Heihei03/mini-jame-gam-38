@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var direction : float = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var has_double_jumped = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +25,13 @@ func _process(delta):
 	
 	if(Input.is_action_pressed("jump")&&is_on_floor()):
 		velocity.y = jump_velocity
+		
+	if(Input.is_action_just_pressed("jump")&& not is_on_floor() && not has_double_jumped):
+		velocity.y = jump_velocity
+		has_double_jumped = false
+		
+	if is_on_floor():
+		has_double_jumped = false
 		
 	if velocity.x != 0:
 		$Sprite.animation = "walk"
