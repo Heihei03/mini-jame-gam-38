@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://do7btf7fbc8t"]
+[gd_scene load_steps=7 format=4 uid="uid://do7btf7fbc8t"]
 
 [ext_resource type="Texture2D" uid="uid://b1rq82pl2h1ko" path="res://Resources/Stone Ruins/SR_Stone Ruins_TilesGround 16x16.png" id="1_i782a"]
 [ext_resource type="PackedScene" uid="uid://btjfnotnwvf1h" path="res://Scenes/player.tscn" id="2_vw1qb"]
+[ext_resource type="PackedScene" uid="uid://dl5r153gdbswe" path="res://Scenes/enemy.tscn" id="3_2lsax"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="4_ryn60"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3gp4y"]
 texture = ExtResource("1_i782a")
@@ -70,3 +72,6 @@ tile_map_data = PackedByteArray("AAAAABEAAAACAAEAAAABABEAAAACAAEAAAACABEAAAACAAE
 tile_set = SubResource("TileSet_g066i")
 
 [node name="Player" parent="." instance=ExtResource("2_vw1qb")]
+
+[node name="Enemy" parent="." instance=ExtResource("3_2lsax")]
+script = ExtResource("4_ryn60")
