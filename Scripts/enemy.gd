@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 @onready var _player = get_parent().get_node("Player")
 @onready var timer = $Timer
+@onready var turn_timer = $Timer2
 
-const SPEED = 180.0
+const SPEED = 160.0
 
 var hostile = false
 var searching = 0
@@ -11,6 +12,9 @@ var direction = 1
 
 #enemy states
 func _hostile() :
+	scale.x = 1
+	$AnimatedSprite2D.flip_h = velocity.x < 0
+	
 	searching = 1
 	if _player.global_position.x > global_position.x :
 		direction = 1
@@ -24,7 +28,7 @@ func _physics_process(delta):
 	
 	if hostile :
 		_hostile()
-
+	
 	$AnimatedSprite2D.play("idle")
 
 	velocity.x = SPEED * direction * searching
@@ -38,7 +42,13 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 func _on_area_2d_2_body_exited(body: Node2D) -> void:
 	if body == _player :
 		timer.stop()
-		timer.wait_time = 2
+		timer.wait_time = 1
+
+func _on_timer_2_timeout() -> void:
+	if not hostile :
+		direction *= -1
+		scale.x *= -1
+
 
 # Attack functions
 func _on_timer_timeout() -> void:
