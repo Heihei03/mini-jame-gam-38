@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Sprite2D
 
 @onready var player = get_parent().get_node("Player")
 
@@ -14,5 +14,5 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body == player:
-		self.hide()
-		player.get_crown()
+		if player.has_crown:
+			print("You win!")
