@@ -215,6 +215,24 @@ position = Vector2(0, 0)
 [node name="Enemy" parent="." instance=ExtResource("3_2lsax")]
 position = Vector2(268, 12)
 
+[node name="Enemy2" parent="." instance=ExtResource("3_2lsax")]
+position = Vector2(580, -193)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_2lsax")]
+position = Vector2(691, -404)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_2lsax")]
+position = Vector2(1241, -496)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_2lsax")]
+position = Vector2(-394, -497)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_2lsax")]
+position = Vector2(-273, -883)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_2lsax")]
+position = Vector2(660, -826)
+
 [node name="Crown" type="AnimatedSprite2D" parent="."]
 position = Vector2(936, -836)
 sprite_frames = SubResource("SpriteFrames_nocyq")
