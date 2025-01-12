@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed : float = 300.0
-@export var jump_velocity : float = -400.0
+@export var speed : float = 200.0
+@export var jump_velocity : float = -300.0
 
 var direction : float = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -29,7 +29,7 @@ func _process(delta):
 		
 	if(Input.is_action_just_pressed("jump")&& not is_on_floor() && not has_double_jumped):
 		velocity.y = jump_velocity
-		has_double_jumped = false
+		has_double_jumped = true
 		
 	if is_on_floor():
 		has_double_jumped = false
