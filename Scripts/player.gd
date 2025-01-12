@@ -29,7 +29,7 @@ func _process(delta):
 		velocity.y = jump_velocity
 		$Sprite.animation = "jump"
 		
-	if Input.is_action_pressed("swap"):
+	if Input.is_action_just_pressed("swap"):
 		swap_hats()
 		
 	process_hat()
