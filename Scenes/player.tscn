@@ -1,7 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://btjfnotnwvf1h"]
+[gd_scene load_steps=23 format=3 uid="uid://btjfnotnwvf1h"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ec7xa"]
 [ext_resource type="Texture2D" uid="uid://dw0mw37ism2py" path="res://Resources/Adventure_Character_Simple.png" id="2_7c21i"]
+[ext_resource type="Texture2D" uid="uid://oqtiabq6mr6s" path="res://Resources/Small Size/hat24.png" id="3_arpu7"]
+[ext_resource type="Texture2D" uid="uid://dy18yql0d78h6" path="res://Resources/Small Size/hat22.png" id="4_2fpmn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2nw7"]
 radius = 6.0
@@ -150,3 +152,12 @@ sprite_frames = SubResource("SpriteFrames_hfth0")
 animation = &"jump"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="hat0" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("3_arpu7")
+
+[node name="hat1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -9)
+texture = ExtResource("4_2fpmn")

@@ -49,10 +49,14 @@ func _process(delta):
 
 func process_hat():
 	if hat_id == 0:
+		$hat0.show()
+		$hat1.hide()
 		if(Input.is_action_just_pressed("jump")&& not is_on_floor() && not has_double_jumped):
 			velocity.y = jump_velocity
 			has_double_jumped = true
 	elif hat_id == 1:
+		$hat1.show()
+		$hat0.hide()
 		emit_signal("stealth_hat_equipped")
 		
 func swap_hats():
