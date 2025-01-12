@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped = false
 var hats = 1
 var hat_id : int = 0
+var has_crown = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -63,3 +64,6 @@ func swap_hats():
 		hat_id += 1
 	elif hat_id >= hats - 1:
 		hat_id = 0
+		
+func get_crown():
+	has_crown = true
