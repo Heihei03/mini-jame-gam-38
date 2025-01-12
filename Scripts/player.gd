@@ -6,6 +6,8 @@ extends CharacterBody2D
 var direction : float = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped = false
+var hats = 1
+var hat_id : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,9 +29,10 @@ func _process(delta):
 		velocity.y = jump_velocity
 		$Sprite.animation = "jump"
 		
-	if(Input.is_action_just_pressed("jump")&& not is_on_floor() && not has_double_jumped):
-		velocity.y = jump_velocity
-		has_double_jumped = true
+	if Input.is_action_pressed("swap"):
+		swap_hats()
+		
+	process_hat()
 		
 	if is_on_floor():
 		has_double_jumped = false
@@ -40,3 +43,17 @@ func _process(delta):
 	$Sprite.play()
 	
 	move_and_slide()
+
+func process_hat():
+	if hat_id == 0:
+		if(Input.is_action_just_pressed("jump")&& not is_on_floor() && not has_double_jumped):
+			velocity.y = jump_velocity
+			has_double_jumped = true
+	elif hat_id == 1:
+		emit_signal("stealth_hat_equipped")
+		
+func swap_hats():
+	if hat_id <= hats - 1:
+		hat_id += 1
+	elif hat_id >= hats - 1:
+		hat_id = 0
