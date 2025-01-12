@@ -45,5 +45,5 @@ func _on_timer_timeout() -> void:
 	hostile = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == _player :
+	if body == _player and hostile :
 		body.death()
