@@ -28,8 +28,9 @@ func _physics_process(delta):
 	
 	if hostile :
 		_hostile()
-	
-	$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.play("run")
+	else :
+		$AnimatedSprite2D.play("idle")
 
 	velocity.x = SPEED * direction * searching
 	move_and_slide()
