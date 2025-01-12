@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://c7hci6s32iyjd"]
+[gd_scene load_steps=32 format=4 uid="uid://c7hci6s32iyjd"]
 
 [ext_resource type="Texture2D" uid="uid://b1rq82pl2h1ko" path="res://Resources/Stone Ruins/SR_Stone Ruins_TilesGround 16x16.png" id="1_4lj0q"]
 [ext_resource type="PackedScene" uid="uid://btjfnotnwvf1h" path="res://Scenes/player.tscn" id="2_kjwnb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/crown.gd" id="5_e0gjw"]
 [ext_resource type="Texture2D" uid="uid://bjvf8dl0wk10o" path="res://Resources/Stone Ruins/SR_Stone Ruins_Objects 16x16.png" id="6_0lnlr"]
 [ext_resource type="Script" path="res://Scripts/sign.gd" id="7_tpp55"]
+[ext_resource type="Texture2D" uid="uid://518o5f7v783g" path="res://Resources/Stone Ruins/SR_Stone Ruins_BackGround 16x16.png" id="8_mcr7w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3gp4y"]
 texture = ExtResource("1_4lj0q")
@@ -264,6 +265,15 @@ position = Vector2(0, -2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sign/Area2D"]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_qulsj")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -10
+offset_left = -882.0
+offset_top = -1258.0
+offset_right = 1431.0
+offset_bottom = 187.0
+texture = ExtResource("8_mcr7w")
+stretch_mode = 1
 
 [connection signal="body_entered" from="Crown/Area2D" to="Crown" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sign/Area2D" to="Sign" method="_on_area_2d_body_entered"]
