@@ -111,8 +111,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6fp2"]
-size = Vector2(70, 20)
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ynhc"]
+radius = 11.0
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -131,7 +131,20 @@ animation = &"run"
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(41, 3)
-shape = SubResource("RectangleShape2D_q6fp2")
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_3ynhc")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
+position = Vector2(13, -1)
+scale = Vector2(1.52679, 1)
+polygon = PackedVector2Array(-7.79649, 3, 1.19589, 0.560463, 150.706, -40, 150.706, 52)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
