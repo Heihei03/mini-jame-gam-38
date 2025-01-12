@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://do7btf7fbc8t"]
+[gd_scene load_steps=2 format=3 uid="uid://dl7tg3lqoa3yh"]
 
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_3i58y"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_i8j54"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3i58y")
+script = ExtResource("1_i8j54")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -29,7 +29,7 @@ alignment = 1
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Hat Trick Heist"
+text = "You win!"
 horizontal_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
@@ -38,7 +38,7 @@ layout_mode = 2
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 2
-text = "Play"
+text = "Play Again"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
